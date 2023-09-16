@@ -34,6 +34,14 @@ class Program
         }
 
         Console.WriteLine($"Your grade is a {letterGrade}");
+        if (percent < 70)
+        {
+            Console.WriteLine("Your grade did not meet the 70% requirement, better luck next time. ");
+        }
+        else
+        {
+            Console.WriteLine("Congrats! Your grade met the 70% requirement!");
+        }
         
         
     }
