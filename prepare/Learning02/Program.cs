@@ -16,11 +16,18 @@ class Program
         job2._startYear = 2022;
         job2._endYear = 2023;
 
+        Job job3 = new Job();
+        job3._jobTitle = "Student";
+        job3._company = "BYUI";
+        job3._startYear = 2012;
+        job3._endYear = 2016;
+
         Resume myResume = new Resume();
         myResume._name = "Allison Rose";
 
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
+        myResume._jobs.Add(job3);
 
         myResume.Display();
     }
