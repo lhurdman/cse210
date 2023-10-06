@@ -1,5 +1,8 @@
-//using System;
-
+using System;
+static void Main(string[] args)
+{
+    
+}
 namespace MyJournal
 {
 
