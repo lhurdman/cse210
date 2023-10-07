@@ -1,65 +1,65 @@
-using MyJournal;
-using MyEntry;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 /* 
 Name: My Journal
-Purpose: <find in assinment>
-Author: <classmates>
+Purpose: To create a program that people can use to save their journal entries.
+There are prompts and a place to put what you are grateful for so that people
+are more likly to write in the journal.
+Author: Lindsay Hurdman,
+(ChatGTP to tell me why I was getting errors and what some errors ment)
 Date: (c) 2023
 */
 
 class Program
 {
-    static void Main(string[] args) 
+    static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to the Journal!");
-        Console.Write("1. Display \n2.Write Entry \n3.Save \n4.Load \n5.Display \n6.Quit\n");
-        string decision = Console.ReadLine();
+        Journal journal = new Journal();
 
-        if (decision == "1") {
-            string filename = "myFile.txt";
-            string[] lines = System.IO.File.ReadAllLines(filename);
-
-            foreach (string line in lines)
-            {
-                string[] parts = line.Split(",");
-
-                string firstName = parts[0];
-                string lastName = parts[1];
-            } 
-        }
-        else if (decision == "2") 
+        while (true) // Main loop for the menu
         {
-            string fileName = "myFile.txt";
+            Console.WriteLine("Journal App Menu:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Exit");
+            Console.Write("What would you like to do? ");
 
-            using (StreamWriter outputFile = new StreamWriter(filename))
+            string choice = Console.ReadLine();
+
+            if (choice == "1") // Add Entry
             {
-                // You can add text to the file with the WriteLine method
-                outputFile.WriteLine("This will be the first line in the file.");
-                
-                // You can use the $ and include variables just like with Console.WriteLine
-                string color = "Blue";
-                outputFile.WriteLine($"My favorite color is {color}");
+                journal.AddEntry();
             }
-            // Entry entry1 = new Entry();
-            // Console.WriteLine("Write Your Entry.");
-            // string _entry = Console.ReadLine();
+            else if (choice == "2") // Display Entries
+            {
+                journal.DisplayEntries();
+            }
+            else if (choice == "3") // Load from File
+            {
+                Console.Write("What is the file name you want to load? ");
+                string loadFileName = Console.ReadLine();
+                journal.LoadFromFile(loadFileName);
+            }
+            else if (choice == "4") // Save to File
+            {
+                Console.Write("What is the file name you want to save? ");
+                string saveFileName = Console.ReadLine();
+                journal.SaveToFile(saveFileName);
+            }
 
+            else if (choice == "5") // Exit
+            {
+                //false;
+                break; // Exit the loop to end the program
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please choose a number between 1-5.");
+            }
         }
-        else if (decision == "3") 
-        {
-            // Save
-        }
-        else if (decision == "4") 
-        {
-            // Load
-        }
-        else if (decision == "6") 
-        {
-            // Quit
-        }
-
-        Journal journal1 = new Journal();
     }
 }
