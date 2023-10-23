@@ -13,9 +13,9 @@ class lhReference
     private string _lhchapter;
     private string _lhverse;
 
-    public lhReference(_book, _chapter, _verse)
+    public lhReference(_lhbook, _lhchapter, _lhverse)
     {
-        lhReference = _book, _chapter, _verse;
+        lhReference = _lhbook, _lhchapter, _lhverse;
     }
 
     public lhReference(lhReference)
